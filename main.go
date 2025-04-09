@@ -27,7 +27,7 @@ func main() {
 		partyID := c.Param("party_id")
 		fmt.Printf("政党ID: %s へのアクセス\n", partyID)
 		return c.JSON(http.StatusOK, map[string]string{
-			"message": "管理者ページにアクセスしました",
+			"message": "管理者ページにアクセスしまし",
 			"party_id": partyID,
 		})
 	})
