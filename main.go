@@ -22,6 +22,17 @@ func main() {
 		return c.String(http.StatusOK, "アクセスがありました")
 	})
 
+	// adminハンドラの設定（パラメータ受け取り）
+	e.GET("/admin/:party_id", func(c echo.Context) error {
+		partyID := c.Param("party_id")
+		fmt.Printf("政党ID: %s へのアクセス\n", partyID)
+		return c.JSON(http.StatusOK, map[string]string{
+			"message": "管理者ページにアクセスしました",
+			"party_id": partyID,
+		})
+	})
+
+
 	// サーバーの起動
 	e.Logger.Fatal(e.Start(":8080"))
 }
